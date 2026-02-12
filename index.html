@@ -3,120 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Galaxy Game Portfolio</title>
+<title>Arcade Galaxy</title>
 
 <style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        color: white;
-        text-align: center;
-        background: radial-gradient(circle at bottom, #0b0f2a 0%, #000000 70%);
-        overflow-x: hidden;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-    /* Stars Animation */
-    body::before {
-        content: "";
-        position: fixed;
-        width: 200%;
-        height: 200%;
-        background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
-        animation: moveStars 100s linear infinite;
-        z-index: -1;
-    }
+body {
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);
+    color: white;
+}
 
-    @keyframes moveStars {
-        from { transform: translateY(0); }
-        to { transform: translateY(-1000px); }
-    }
+/* --------- STAR BACKGROUND --------- */
 
-    h1 {
-        font-size: 3rem;
-        margin-top: 80px;
-        background: linear-gradient(90deg, #7f5af0, #00d4ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
+.stars, .stars2, .stars3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+    animation: moveStars 100s linear infinite;
+}
 
-    p {
-        font-size: 1.2rem;
-        color: #ccc;
-    }
+.stars {
+    background-image: radial-gradient(2px 2px at 20px 30px, white, transparent),
+                      radial-gradient(2px 2px at 40px 70px, white, transparent),
+                      radial-gradient(2px 2px at 90px 40px, white, transparent),
+                      radial-gradient(2px 2px at 130px 80px, white, transparent),
+                      radial-gradient(2px 2px at 160px 120px, white, transparent);
+    background-size: 200px 200px;
+}
 
-    .container {
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-        margin-top: 80px;
-        flex-wrap: wrap;
-    }
+.stars2 {
+    animation-duration: 160s;
+    background-image: radial-gradient(1px 1px at 50px 160px, #bbb, transparent),
+                      radial-gradient(1px 1px at 90px 40px, #bbb, transparent),
+                      radial-gradient(1px 1px at 130px 80px, #bbb, transparent);
+    background-size: 300px 300px;
+}
 
-    .card {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 40px;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        width: 250px;
-        transition: 0.4s ease;
-        box-shadow: 0 0 20px rgba(127, 90, 240, 0.4);
-    }
+.stars3 {
+    animation-duration: 240s;
+    background-image: radial-gradient(2px 2px at 70px 90px, #888, transparent),
+                      radial-gradient(2px 2px at 120px 20px, #888, transparent);
+    background-size: 400px 400px;
+}
 
-    .card:hover {
-        transform: translateY(-15px) scale(1.05);
-        box-shadow: 0 0 40px rgba(0, 212, 255, 0.8);
-    }
+@keyframes moveStars {
+    from {transform: translateY(0);}
+    to {transform: translateY(-1000px);}
+}
 
-    .card h2 {
-        margin-bottom: 15px;
-    }
+/* --------- CENTER CONTENT --------- */
 
-    .card a {
-        text-decoration: none;
-        color: white;
-        padding: 10px 20px;
-        border: 2px solid #00d4ff;
-        border-radius: 30px;
-        transition: 0.3s;
-    }
+.container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
 
-    .card a:hover {
-        background: #00d4ff;
-        color: black;
-    }
+h1 {
+    font-size: 60px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #00c6ff, #ff00cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-    footer {
-        margin-top: 100px;
-        padding: 20px;
-        font-size: 0.9rem;
-        color: #777;
-    }
+.subtitle {
+    font-size: 20px;
+    margin-bottom: 50px;
+    color: #cccccc;
+}
+
+/* --------- GAME BUTTONS --------- */
+
+.game-btn {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px 60px;
+    font-size: 24px;
+    border-radius: 40px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.game-btn:hover {
+    background: white;
+    color: black;
+    box-shadow: 0 0 25px #00c6ff;
+}
 </style>
+
 </head>
 
 <body>
 
-<h1>🌌 My Galaxy Game Portfolio</h1>
-<p>Explore my universe of interactive web games 🚀</p>
+<div class="stars"></div>
+<div class="stars2"></div>
+<div class="stars3"></div>
 
 <div class="container">
+    <h1>🌌 ARCADE GALAXY</h1>
+    <div class="subtitle">Choose Your Game</div>
 
-    <div class="card">
-        <h2>🎮 Game One</h2>
-        <p>Fast-paced action adventure.</p>
-        <a href="game1/">Play Now</a>
-    </div>
-
-    <div class="card">
-        <h2>🕹️ Game Two</h2>
-        <p>Strategy meets fun challenges.</p>
-        <a href="game2/">Play Now</a>
-    </div>
-
+    <a href="tetris.html" class="game-btn">🟦 Play Tetris</a>
+    <a href="rps.html" class="game-btn">✊ Play Rock Paper Scissors</a>
 </div>
-
-<footer>
-</footer>
 
 </body>
 </html>
